@@ -1,0 +1,23 @@
+version: '3.8'
+
+volumes:
+  mymoviescoreDB:
+
+networks:
+  sqlserverNET:
+
+services:
+
+  sqlserver:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    container_name: mymoviescoreDB
+    ports:
+      - "1433:1433"
+    volumes:
+      - mymoviescoreDB:/var/lib/sqlserver
+    networks:
+      - sqlserverNET
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: numsey#2021
+      MSSQL_PID: EXPRESS
