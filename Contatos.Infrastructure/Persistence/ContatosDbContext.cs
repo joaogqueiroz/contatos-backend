@@ -4,18 +4,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Contatos.Infrastructure.Persistence
 {
-    public class ContatosDbContext : DbContext
+  public class ContatosDbContext : DbContext
+  {
+    public ContatosDbContext(DbContextOptions<ContatosDbContext> options) : base(options)
     {
-        public ContatosDbContext(DbContextOptions<ContatosDbContext> options) : base(options)
-        {
-        }
-
-        public DbSet<Pessoa> Pessoas { get; set; }
-        public DbSet<Contato> Contatos { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-        }
     }
+
+    public DbSet<Pessoa> Pessoas { get; set; }
+    public DbSet<Contato> Contatos { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+      modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+    }
+  }
 }

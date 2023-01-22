@@ -1,22 +1,22 @@
 version: '3.8'
 
 volumes:
-  mymoviescoreDB:
+  contatoDB:
 
 networks:
-  sqlserverNET:
+  contatoNET:
 
 services:
 
   sqlserver:
     image: "mcr.microsoft.com/mssql/server:2019-latest"
-    container_name: mymoviescoreDB
+    container_name: contatoDB
     ports:
       - "1433:1433"
     volumes:
-      - mymoviescoreDB:/var/lib/sqlserver
+      - contatoDB:/var/lib/sqlserver
     networks:
-      - sqlserverNET
+      - contatoNET
     environment:
       ACCEPT_EULA: Y
       MSSQL_SA_PASSWORD: numsey#2021
