@@ -4,8 +4,8 @@ namespace Contatos.Application.Commands.UpdatePessoa
 {
   public class UpdatePessoaCommand : IRequest<Unit>
   {
-    public int Id { get; private set; }
-    public string? Nome { get; private set; }
+    public int Id { get; set; }
+    public string? Nome { get; set; }
 
   }
 }
